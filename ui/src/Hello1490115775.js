@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Hello = () => {
+const Hello1490115775 = () => {
   // Store JSON data from api endpoints using state variable
   const [data, setData] = useState("");
   const [title, setTitle] = useState("");
@@ -9,7 +9,7 @@ const Hello = () => {
 
   // Fetch latest revision of the Hello document on first render
   useEffect(() => {
-    fetch("/page/hello/latest").then((res) =>
+    fetch("/page/hello/1490115775").then((res) =>
       res.json().then((data) => {
         setData(data.data);
         setTitle(data.title);
@@ -64,4 +64,4 @@ const Hello = () => {
   );
 };
 
-export default Hello;
+export default Hello1490115775;

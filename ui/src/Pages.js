@@ -22,7 +22,7 @@ const Pages = () => {
       <h1>Documents:</h1>
       <ul>
         {titles.map((title) => {
-          const link = `/page/${title}`;
+          const link = `/page/${title}/latest`;
           return (
             <Link to={link}>
               <h3>{title}</h3>
