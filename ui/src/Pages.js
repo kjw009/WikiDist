@@ -1,16 +1,17 @@
+// Import react components
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // /Pages component
 const Pages = () => {
   // Assign JSON to state variable
-  const [data, setData] = useState([]);
+  const [titles, setTitles] = useState([]);
 
   // Fetch JSON data from backend /pages endpoint on the first render
   useEffect(() => {
     fetch("/pages").then((res) =>
       res.json().then((data) => {
-        setData(data.titles);
-        console.log(data);
+        setTitles(data.titles);
       })
     );
   }, []);
@@ -18,12 +19,17 @@ const Pages = () => {
   // Return
   return (
     <>
-    <h1>Documents:</h1>
-    <ul>
-      {data.map((title) => (
-        <h3>{title}</h3>
-      ))}
-    </ul>
+      <h1>Documents:</h1>
+      <ul>
+        {titles.map((title) => {
+          const link = `/page/${title}`;
+          return (
+            <Link to={link}>
+              <h3>{title}</h3>
+            </Link>
+          );
+        })}
+      </ul>
     </>
   );
 };

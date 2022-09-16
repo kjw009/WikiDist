@@ -1,6 +1,6 @@
 // Import react modules
 import React from "react";
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 
 // Import functional components
 import Pages from "./Pages";
@@ -9,14 +9,12 @@ import Passfort from "./Passfort";
 
 function App() {
   return (
-    <BrowserRouter>
     <Switch>
-      <Route path="/pages" component={Pages} />
-      <Route path="/page/hello" component={Hello} />
-      <Route path="/page/passfort" component={Passfort} />
-      <Redirect to="/pages" />
+      <Route exact path="/pages" component={withRouter(Pages)} />
+      <Route exact path="/page/hello" component={withRouter(Hello)} />
+      <Route exact path="/page/passfort" component={withRouter(Passfort)} />
+      <Redirect exact to="/pages" />
     </Switch>
-    </BrowserRouter>
   );
 }
 
